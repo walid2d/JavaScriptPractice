@@ -85,3 +85,31 @@ export function canFreePrisoner(
   }
 }
 canFreePrisoner(true, false, true, true);
+
+//Exercise: 4
+export function frontDoorResponse(line) {
+  const response = line[0];
+  return response;
+}
+frontDoorResponse("how are you?");
+
+export function frontDoorPassword(word) {
+  let wordLowerCase = word.toLowerCase();
+  let wordUpperCase = wordLowerCase[0].toUpperCase();
+  let newWord = wordUpperCase + wordLowerCase.slice(1);
+  return newWord;
+}
+frontDoorPassword("shire");
+
+export function backDoorResponse(line) {
+  let removeSpace = line.trim();
+  let lastLetter = removeSpace.slice(-1);
+  return lastLetter;
+}
+backDoorResponse("Stands so high");
+
+export function backDoorPassword(word) {
+  let bePolite = `${frontDoorPassword(word)}, please`;
+  return bePolite;
+}
+backDoorPassword("horse");
