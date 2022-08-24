@@ -113,3 +113,62 @@ export function backDoorPassword(word) {
   return bePolite;
 }
 backDoorPassword("horse");
+
+//Exercise: 5 ; Array Methods
+
+export function getItem(cards, position) {
+  let arr = cards;
+  let cardNum = arr[position];
+  return cardNum;
+}
+getItem([1, 4, 2, 3], 2);
+
+export function setItem(cards, position, replacementCard) {
+  let arrCards = cards;
+  arrCards[position] = replacementCard;
+  return arrCards;
+}
+setItem([2, 3, 1, 6], 1, 4);
+
+export function insertItemAtTop(cards, newCard) {
+  let arrCards = cards;
+  arrCards.push(newCard);
+  return arrCards;
+}
+insertItemAtTop([1, 3, 5], 3);
+
+export function removeItem(cards, position) {
+  let arrCards = cards;
+  arrCards.splice(position, 1);
+  return arrCards;
+}
+removeItem([21, 44, 22, 5], 0);
+
+export function removeItemFromTop(cards) {
+  let arrCards = cards;
+  arrCards.pop();
+  return arrCards;
+}
+removeItemFromTop([3, 4, 32, 3]);
+
+export function insertItemAtBottom(cards, newCard) {
+  let arrCards = cards;
+  arrCards.unshift(newCard);
+  return arrCards;
+}
+insertItemAtBottom([3, 4, 3, 3], 3);
+
+export function removeItemAtBottom(cards) {
+  let arrCards = cards;
+  arrCards.shift();
+  return arrCards;
+}
+removeItemAtBottom([3, 3, 54, 3, 2]);
+
+export function checkSizeOfStack(cards, stackSize) {
+  if (cards.length === stackSize) {
+    return true;
+  } else {
+    return false;
+  }
+}
