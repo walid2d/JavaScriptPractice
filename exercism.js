@@ -199,3 +199,35 @@ export function calculateResellPrice(originalPrice, age) {
   }
 }
 calculateResellPrice(1000, 3);
+export function totalBirdCount(birdsPerDay) {
+  let total = 0;
+  for (let i = 0; i < birdsPerDay.length; i++) {
+    total += birdsPerDay[i];
+  }
+  return total;
+}
+//Exercise: 7;
+
+totalBirdCount([1, 2, 3, 4, 5]);
+
+export function birdsInWeek(birdsPerDay, week) {
+  let total = 0;
+  for (let i = week * 7 - 7; i < week * 7; i++) {
+    total += birdsPerDay[i];
+  }
+
+  return total;
+}
+
+birdsInWeek([2, 1, 7, 8, 9, 10], 2);
+
+export function fixBirdCountLog(birdsPerDay) {
+  let newArr = birdsPerDay;
+  for (let i = 0; i < newArr.length; i++) {
+    if (i % 2 === 0) {
+      newArr[i] = newArr[i] + 1;
+    }
+  }
+  return newArr;
+}
+fixBirdCountLog([3, 3, 4, 6, 4, 3, 2]);
