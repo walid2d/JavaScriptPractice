@@ -231,3 +231,100 @@ export function fixBirdCountLog(birdsPerDay) {
   return newArr;
 }
 fixBirdCountLog([3, 3, 4, 6, 4, 3, 2]);
+
+//Excercise: 8
+function timeToMixJuice(name) {
+  switch (name) {
+    case "Pure Strawberry Joy":
+      return 0.5;
+    case "Energizer":
+    case "Green Garden":
+      return 1.5;
+    case "Tropical Island":
+      return 3;
+    case "All or Nothing":
+      return 5;
+    default:
+      return 2.5;
+  }
+}
+timeToMixJuice("Pure Strawberry Joy");
+
+export function limesToCut(wedgesNeeded, limes) {
+  const wedges = {
+    small: 6,
+    medium: 8,
+    large: 10,
+  };
+  let wedgesToCut = 0;
+  let i = 0;
+  while (wedgesToCut < wedgesNeeded) {
+    if (limes[i]) {
+      wedgesToCut += wedges[limes[i]];
+      i++;
+    } else {
+      return i;
+    }
+  }
+
+  return i;
+}
+
+limesToCut(25, ["small", "small", "large", "medium", "small"]);
+
+export function remainingOrders(timeLeft, orders) {
+  while (timeLeft > 0) {
+    timeLeft -= timeToMixJuice(orders[0]);
+    orders.shift();
+  }
+  return orders;
+}
+
+//Exerciss: 9
+export function createScoreBoard() {
+  let record = {
+    "The Best Ever": 1000000,
+  };
+
+  return record;
+}
+createScoreBoard();
+
+export function addPlayer(scoreBoard, player, score) {
+  let newObj = scoreBoard;
+  newObj[player] = score;
+  return newObj;
+}
+addPlayer({ "Dave Thomas": 0 }, "Jose Valim", 4);
+
+export function removePlayer(scoreBoard, player) {
+  let obj = scoreBoard;
+  delete obj[player];
+  return obj;
+}
+removePlayer({ dingdong: 3 }, "dingdong");
+
+export function updateScore(scoreBoard, player, points) {
+  let obj = scoreBoard;
+  obj[player] += points;
+  return obj;
+}
+updateScore({ "Freyja Ćirić": 12771008 }, "Freyja Ćirić", 73);
+
+export function applyMondayBonus(scoreBoard) {
+  let obj = scoreBoard;
+  for (let key in obj) {
+    obj[key] += 100;
+  }
+  return obj;
+}
+
+function normalize(score) {
+  return 2 * score + 10;
+}
+const params = { score: 400, normalizeFunction: normalize };
+export function normalizeScore(params) {
+  let newScore = params.normalizeFunction(params.score);
+  return newScore;
+}
+normalizeScore(params);
