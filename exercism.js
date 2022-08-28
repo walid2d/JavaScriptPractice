@@ -374,3 +374,32 @@ export function gtcVersion(visitor) {
   let version = visitor.gtc?.version;
   return version;
 }
+//Exercise: 11
+export function twoSum(array1, array2) {
+  const arr = Number(array1.join(""));
+  const arr1 = Number(array2.join(""));
+  const result = arr + arr1;
+  return result;
+}
+twoSum([1, 2, 3], [0, 7]);
+
+export function luckyNumber(value) {
+  let compare = String(value).split("").reverse().join("");
+  if (value === Number(compare)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+luckyNumber(1221);
+
+export function errorMessage(input) {
+  if (Number(input)) {
+    return "";
+  } else if (!input) {
+    return "Required field";
+  } else if (!Number(input)) {
+    return "Must be a number besides 0";
+  }
+}
+errorMessage("123");
