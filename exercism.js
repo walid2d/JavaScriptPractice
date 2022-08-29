@@ -403,3 +403,61 @@ export function errorMessage(input) {
   }
 }
 errorMessage("123");
+// Exercise 12
+export function cookingStatus(remainingTime = "You forgot to set the timer.") {
+  if (remainingTime == 0) {
+    return "Lasagna is done.";
+  } else if (remainingTime > 0) {
+    return "Not done, please wait.";
+  }
+  return remainingTime;
+}
+cookingStatus(0);
+export function preparationTime(layers, min = 2) {
+  let arr = layers.length * min;
+  return arr;
+}
+preparationTime(["sauce", "noodles", "sauce", "meat"], 3);
+export function quantities(arr) {
+  let noodles = 0;
+  let sauce = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === "sauce") {
+      sauce += 0.2;
+    } else if (arr[i] === "noodles") {
+      noodles += 50;
+    }
+  }
+  return {
+    noodles: noodles,
+    sauce: sauce,
+  };
+}
+quantities(["sauce", "noodles", "sauce", "meat", "mozzarella", "noodles"]);
+const friendsList = ["noodles", "sauce", "mozzarella", "kampot pepper"];
+const myList = ["noodles", "meat", "sauce", "mozzarella"];
+export function addSecretIngredient(arr, arr2) {
+  let newArr = String(arr.slice(-1));
+  arr2.push(newArr);
+}
+addSecretIngredient(friendsList, myList);
+const recipe = {
+  noodles: 200,
+  sauce: 0.5,
+  mozzarella: 1,
+  meat: 100,
+};
+export function scaleRecipe(recipe, portion) {
+  let e = portion / 2;
+  let rep = Object.assign({}, recipe);
+  if (!portion) {
+    return recipe;
+  } else {
+    for (let key in rep) {
+      rep[key] *= e;
+    }
+    return rep;
+  }
+}
+
+scaleRecipe(recipe);
