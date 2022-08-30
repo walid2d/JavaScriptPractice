@@ -461,3 +461,23 @@ export function scaleRecipe(recipe, portion) {
 }
 
 scaleRecipe(recipe);
+
+//Excercise 13
+export function buildSign(occasion, name) {
+  return `Happy ${occasion} ${name}!`;
+}
+
+export function buildBirthdaySign(age) {
+  return `Happy Birthday! What a ${
+    age >= 50 ? "mature" : "young"
+  } fellow you are.`;
+}
+
+export function graduationFor(name, year) {
+  return `Congratulations ${name}!
+Class of ${year}`;
+}
+
+export function costOf(sign, currency) {
+  return `Your sign costs ${sign.length * 2 + 20}.00 ${currency}.`;
+}
