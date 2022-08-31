@@ -481,3 +481,37 @@ Class of ${year}`;
 export function costOf(sign, currency) {
   return `Your sign costs ${sign.length * 2 + 20}.00 ${currency}.`;
 }
+
+//Excercise 14;
+
+export function translate2d(dx, dy) {
+  return function (x, y) {
+    return [x + dx, y + dy];
+  };
+}
+
+export function scale2d(sx, sy) {
+  return function (x, y) {
+    return [x * sx, y * sy];
+  };
+}
+
+export function composeTransform(f, g) {
+  return function (x, y) {
+    let fresult = f(x, y);
+    return g(fresult[0], fresult[1]);
+  };
+}
+
+export function memoizeTransform(f) {
+  let lastX = undefined;
+  let lastY = undefined;
+  let lastResult = undefined;
+  return function (x, y) {
+    if (lastX === x && lastY === y) return lastResult;
+    lastX = x;
+    lastY = y;
+    lastResult = f(x, y);
+    return lastResult;
+  };
+}
