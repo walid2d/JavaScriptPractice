@@ -536,3 +536,32 @@ export function postOrder(variety, quantity) {
   let obj = { variety, quantity };
   return orderFromGrocer(obj, onSuccess, onError);
 }
+//Exercise: 16;
+
+export function getFirstCard(deck) {
+  let [firstEle] = deck;
+  return firstEle;
+}
+
+export function getSecondCard(deck) {
+  let [, s] = deck;
+  return s;
+}
+
+export function swapTopTwoCards(deck) {
+  let [first, second, ...rest] = deck;
+  return [second, first, ...rest];
+}
+
+export function discardTopCard(deck) {
+  let [first, ...rest] = deck;
+  return [first, rest];
+}
+
+/** @type Card[] **/
+const FACE_CARDS = ["jack", "queen", "king"];
+
+export function insertFaceCards(deck) {
+  let [a, ...rest] = deck;
+  return [a, ...FACE_CARDS, ...rest];
+}
