@@ -565,3 +565,28 @@ export function insertFaceCards(deck) {
   let [a, ...rest] = deck;
   return [a, ...FACE_CARDS, ...rest];
 }
+
+// diagonal difference: HackerRank
+function diagonalDifference(arr) {
+  let left = 0;
+  let right = 0;
+  let n = arr[0].length;
+  for (let i = 0, j = n - 1; i < n, j > -1; i++, j--) {
+    left += arr[i][i];
+    right += arr[i][j];
+  }
+
+  return Math.abs(left - right);
+}
+
+//alternate solution using destructuring;
+function diagonalDifference(arr) {
+  let [a, b, c] = arr;
+  let [a1, , a2] = a;
+  let [, b1] = b;
+  let [c1, , c2] = c;
+  let left = a1 + b1 + c2;
+  let right = a2 + b1 + c1;
+
+  return Math.abs(left - right);
+}
