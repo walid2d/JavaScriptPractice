@@ -616,3 +616,15 @@ export function getFirstOddCard(stack) {
 export function getFirstEvenCardPosition(stack) {
   return stack.findIndex((num) => num % 2 === 0);
 }
+//Exercise: 19;
+function staircase(n) {
+  let stairs = "#";
+  let space = " ";
+  for (let i = 1; i <= n; i++) {
+    if (i === n) {
+      console.log(stairs.repeat(i));
+    } else {
+      console.log(space.repeat(n - (i + 1)), stairs.repeat(i));
+    }
+  }
+}
