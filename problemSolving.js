@@ -801,3 +801,33 @@ export function determineOddEvenCards(stack, type) {
   const result = type ? even : odd;
   return result;
 }
+export function removeDuplicates(playlist) {
+  const mySet = [...new Set(playlist)];
+
+  return mySet;
+}
+
+export function hasTrack(playlist, track) {
+  const mySet = new Set(playlist);
+  return mySet.has(track);
+}
+
+export function addTrack(playlist, track) {
+  const mySet = new Set(playlist);
+  mySet.add(track);
+  return [...new Set(mySet)];
+}
+
+export function deleteTrack(playlist, track) {
+  const mySet = new Set(playlist);
+  mySet.delete(track);
+  return [...new Set(mySet)];
+}
+
+export function listArtists(playlist) {
+  const set = new Set();
+  playlist.forEach((v, i) => {
+    set.add(v.split(" - ")[1]);
+  });
+  return [...new Set(set)];
+}
