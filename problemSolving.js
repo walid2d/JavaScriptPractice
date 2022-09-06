@@ -780,3 +780,24 @@ export function perfectlyOrdered(deck) {
 export function reorder(deck) {
   return deck.reverse();
 }
+export function cardTypeCheck(stack, card) {
+  let cardCount = 0;
+  stack.forEach((n, i) => {
+    if (n === card) cardCount += 1;
+  });
+  return cardCount;
+}
+
+export function determineOddEvenCards(stack, type) {
+  let odd = 0;
+  let even = 0;
+  for (const n of stack) {
+    if (n % 2 === 0) {
+      even += 1;
+    } else {
+      odd += 1;
+    }
+  }
+  const result = type ? even : odd;
+  return result;
+}
