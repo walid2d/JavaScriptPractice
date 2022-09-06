@@ -736,3 +736,47 @@ export function monitorTheMachine(actions) {
     }
   }
 }
+//Exercise 21
+
+export function seeingDouble(deck) {
+  return deck.map((value) => value * 2);
+}
+
+export function threeOfEachThree(deck) {
+  return deck.reduce((result, currentValue) => {
+    if (currentValue === 3) {
+      result.push(3, 3, 3);
+    } else {
+      result.push(currentValue);
+    }
+    return result;
+  }, []);
+}
+
+export function middleTwo(deck) {
+  return deck.filter(
+    (v, i) =>
+      Math.floor((deck.length - 1) / 2) == i || Math.ceil(deck.length / 2) == i
+  );
+}
+
+export function sandwichTrick(deck) {
+  const mid = deck.length / 2 - 1;
+  const [a] = deck.splice(0, 1);
+  const [b] = deck.splice(-1, 1);
+  deck.splice(mid, 0, b, a);
+  return deck;
+}
+
+export function twoIsSpecial(deck) {
+  return deck.filter((v) => v === 2);
+}
+
+export function perfectlyOrdered(deck) {
+  const result = deck.sort((a, b) => a - b);
+  return result;
+}
+
+export function reorder(deck) {
+  return deck.reverse();
+}
