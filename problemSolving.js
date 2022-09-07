@@ -829,5 +829,46 @@ export function listArtists(playlist) {
   playlist.forEach((v, i) => {
     set.add(v.split(" - ")[1]);
   });
+
+  //let arr = Array.from(set);
   return [...new Set(set)];
 }
+// two-fer
+export const twoFer = (name = "you") => {
+  return `One for ${name}, one for me.`;
+};
+//Resistor Color
+export const COLORS = [
+  "black",
+  "brown",
+  "red",
+  "orange",
+  "yellow",
+  "green",
+  "blue",
+  "violet",
+  "grey",
+  "white",
+];
+export const colorCode = (color) => {
+  return COLORS.indexOf(color);
+};
+//Resistor Color Duo
+export const COLORS = [
+  "black",
+  "brown",
+  "red",
+  "orange",
+  "yellow",
+  "green",
+  "blue",
+  "violet",
+  "grey",
+  "white",
+];
+export const decodedValue = (val) => {
+  let [a, b] = val;
+  let inA = COLORS.indexOf(a).toString();
+  let inB = COLORS.indexOf(b).toString();
+  return (inA + inB) * 1;
+};
