@@ -872,3 +872,90 @@ export const decodedValue = (val) => {
   let inB = COLORS.indexOf(b).toString();
   return (inA + inB) * 1;
 };
+
+//Gigasecond
+
+export const gigasecond = (miliseconds) => {
+  let moment = miliseconds.getTime() + 1000000000000;
+  let newDate = new Date(moment);
+  return newDate;
+};
+export const dna = {
+  G: "C",
+  C: "G",
+  T: "A",
+  A: "U",
+};
+export const toRna = (strand) => {
+  let rna = "";
+  strand.split("").forEach((v) => {
+    if (dna[v]) {
+      rna += dna[v];
+    }
+  });
+
+  return rna;
+};
+export const age = (planet, sec) => {
+  const obj = {
+    mercury: 0.2408467,
+    venus: 0.61519726,
+    earth: 1.0,
+    mars: 1.8808158,
+    jupiter: 11.862615,
+    saturn: 29.447498,
+    uranus: 84.016846,
+    neptune: 164.79132,
+  };
+  let age = sec / (obj[planet] * 31557600);
+  return +age.toFixed(2);
+};
+// Panagram
+const isPangram = (input) => {
+  let alphabets = [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+    "i",
+    "j",
+    "k",
+    "l",
+    "m",
+    "n",
+    "o",
+    "p",
+    "q",
+    "r",
+    "s",
+    "t",
+    "u",
+    "v",
+    "w",
+    "x",
+    "y",
+    "z",
+  ];
+  let charArr = input.toLowerCase().split(" ").join("").split("");
+  if (charArr.length < 26) {
+    return false;
+  } else {
+    let pangram = "";
+
+    alphabets.forEach((v, i) => {
+      for (let j = 0; j < charArr.length; j++) {
+        if (v === charArr[j]) return (pangram += v);
+      }
+    });
+
+    if (pangram.length >= 26) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+};
