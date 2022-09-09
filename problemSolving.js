@@ -959,3 +959,18 @@ const isPangram = (input) => {
     }
   }
 };
+// alternate solution with destructuring, every and includes method
+//const alphabet = [...'abcdefghijklmnopqrstuvwxyz'];
+// export const isPangram = (input) => {
+//   const inputLowered = input.toLowerCase();
+//   return alphabet.every(letter => inputLowered.includes(letter));
+// };
+export const findAnagrams = (word, arr) => {
+  word = word.toLowerCase();
+  let strSort = [...word].sort().join();
+  return arr.filter(
+    (str) =>
+      str.toLowerCase() !== word &&
+      [...str.toLowerCase()].sort().join() === strSort
+  );
+};
