@@ -974,3 +974,54 @@ export const findAnagrams = (word, arr) => {
       [...str.toLowerCase()].sort().join() === strSort
   );
 };
+// Leap Year
+export const isLeap = (year) => {
+  if (
+    (year % 4 === 0 && year % 100 !== 0) ||
+    (year % 100 === 0 && year % 400 === 0)
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+};
+// Collatz Conjecture;
+export const steps = (input) => {
+  if (input < 1) throw new Error("Only positive numbers are allowed");
+  let steps = 0;
+  let n = input;
+  while (n > 1) {
+    n % 2 === 0 ? (n /= 2) : (n = n * 3 + 1);
+    steps++;
+  }
+
+  return steps;
+};
+//Triangle
+export class Triangle {
+  constructor(...sides) {
+    this.sides = sides;
+  }
+
+  get isEquilateral() {
+    return this.sides.every((e, i) => this.sides[0] === e && e !== 0);
+  }
+
+  get isIsosceles() {
+    let [a, b, c] = this.sides.sort((a, b) => b - a);
+    if (a === b && (b !== c || b === c)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  get isScalene() {
+    let [a, b, c] = this.sides.sort();
+    if (a !== b && b !== c && a + b > c) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
