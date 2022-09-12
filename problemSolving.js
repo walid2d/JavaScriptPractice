@@ -1025,3 +1025,17 @@ export class Triangle {
     }
   }
 }
+export const compute = (one, two) => {
+  let strand = [...one];
+  let strandTwo = [...two];
+  let HammingDis = 0;
+  if (one.length !== two.length) {
+    throw new Error("strands must be of equal length");
+  } else
+    strand.forEach((v, i) => {
+      if (v !== strandTwo[i]) {
+        HammingDis++;
+      }
+    });
+  return HammingDis;
+};
