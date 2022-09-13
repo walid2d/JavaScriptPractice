@@ -874,6 +874,7 @@ export const decodedValue = (val) => {
 };
 
 //Gigasecond
+//Exercise 22
 
 export const gigasecond = (miliseconds) => {
   let moment = miliseconds.getTime() + 1000000000000;
@@ -911,6 +912,7 @@ export const age = (planet, sec) => {
   return +age.toFixed(2);
 };
 // Panagram
+//Exercise 23
 const isPangram = (input) => {
   let alphabets = [
     "a",
@@ -975,6 +977,7 @@ export const findAnagrams = (word, arr) => {
   );
 };
 // Leap Year
+//Exercise 23
 export const isLeap = (year) => {
   if (
     (year % 4 === 0 && year % 100 !== 0) ||
@@ -998,6 +1001,7 @@ export const steps = (input) => {
   return steps;
 };
 //Triangle
+//Exercise 24
 export class Triangle {
   constructor(...sides) {
     this.sides = sides;
@@ -1025,6 +1029,7 @@ export class Triangle {
     }
   }
 }
+//Exercise 25
 export const compute = (one, two) => {
   let strand = [...one];
   let strandTwo = [...two];
