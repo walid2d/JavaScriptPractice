@@ -1044,3 +1044,11 @@ export const compute = (one, two) => {
     });
   return HammingDis;
 };
+export const compte = (str1, str2) => {
+  if (str1.length !== str2.length)
+    throw new Error("strands must be of equal length");
+  return [...str1].reduce(
+    (hamming, nucleotide, i) => hamming + (nucleotide !== str2[i]),
+    0
+  );
+};
