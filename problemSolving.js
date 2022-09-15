@@ -1052,3 +1052,16 @@ export const compte = (str1, str2) => {
     0
   );
 };
+export const transform = (obj) => {
+  //transform object into an array
+  let arr = Object.entries(obj);
+  // empty variable for the end result
+  let result = {};
+  for (let [score, letters] of arr) {
+    letters.forEach((v) => {
+      let change = v.toLowerCase();
+      result[change] = +score;
+    });
+  }
+  return result;
+};
