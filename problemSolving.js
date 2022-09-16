@@ -1074,3 +1074,54 @@ export const convert = (num) => {
   }
   return result;
 };
+export class BankAccount {
+  constructor() {
+    this.accountStatus = false;
+    this.amount = 0;
+  }
+
+  open() {
+    if (this.accountStatus) {
+      throw new ValueError("This account is closed.");
+    } else {
+      this.accountStatus = true;
+    }
+  }
+
+  close() {
+    if (!this.accountStatus) {
+      throw new ValueError("This account is closed.");
+    } else {
+      this.accountStatus = false;
+      this.amount = 0;
+    }
+  }
+
+  deposit(n) {
+    if (n < 0 || !this.accountStatus) {
+      throw new ValueError("This account is closed.");
+    } else this.amount += n;
+  }
+
+  withdraw(n) {
+    if (this.amount < n) {
+      throw new ValueError("This account is closed.");
+    } else if (n < 0) {
+      throw new ValueError("This account is closed.");
+    } else this.amount -= n;
+  }
+
+  get balance() {
+    if (!this.accountStatus) {
+      throw new ValueError("This account is closed.");
+    } else {
+      return this.amount;
+    }
+  }
+}
+
+export class ValueError extends Error {
+  constructor() {
+    super("Bank account error");
+  }
+}
