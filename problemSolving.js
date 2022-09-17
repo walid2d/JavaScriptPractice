@@ -1125,3 +1125,11 @@ export class ValueError extends Error {
     super("Bank account error");
   }
 }
+export class Squares {
+  constructor(num) {
+    const sum = (num * (num + 1)) / 2;
+    this.squareOfSum = sum * sum;
+    this.sumOfSquares = (num * (num + 1) * (2 * num + 1)) / 6;
+    this.difference = this.squareOfSum - this.sumOfSquares;
+  }
+}
