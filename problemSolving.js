@@ -1133,3 +1133,13 @@ export class Squares {
     this.difference = this.squareOfSum - this.sumOfSquares;
   }
 }
+export const parse = (str) => {
+  let string = str
+    .match(/['a-z]+/gi)
+    .join(" ")
+    .split(" ")
+    .map((w) => w[0])
+    .join("")
+    .toUpperCase();
+  return string;
+};
