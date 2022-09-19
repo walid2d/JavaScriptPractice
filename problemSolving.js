@@ -1143,3 +1143,10 @@ export const parse = (str) => {
     .toUpperCase();
   return string;
 };
+export const parse = (string) => {
+  return string
+    .toUpperCase()
+    .replace(/[_']/g, "")
+    .match(/\b[A-Z]/g)
+    .join("");
+};
