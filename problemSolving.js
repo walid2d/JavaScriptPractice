@@ -1163,3 +1163,18 @@ function bSort() {
     }
   }
 }
+function miniMaxSum(arr) {
+  let newArr = arr.sort((a, b) => a - b);
+  let x = 0;
+  let y = 0;
+  newArr.forEach((n, i) => {
+    if (i < 4) {
+      x += n;
+    }
+    if (i > 0) {
+      y += n;
+    }
+  });
+
+  console.log(`${x} ${y}`);
+}
