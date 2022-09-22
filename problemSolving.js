@@ -1211,3 +1211,21 @@ function gradingStudents(grades) {
   });
   return finalGrades;
 }
+function countApplesAndOranges(s, t, a, b, apples, oranges) {
+  // Write your code here
+  let applesArr = apples
+    .map((value) => value + a)
+    .filter((v) => v >= s && v <= t).length;
+  let orangesArr = oranges
+    .map((value) => value + b)
+    .filter((v) => v >= s && v <= t).length;
+
+  console.log(applesArr, orangesArr);
+}
+function kangaroo(x1, v1, x2, v2) {
+  if (v2 < v1 && (x2 - x1) % (v1 - v2) === 0) {
+    return "YES";
+  } else {
+    return "NO";
+  }
+}
