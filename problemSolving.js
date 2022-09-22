@@ -1178,3 +1178,36 @@ function miniMaxSum(arr) {
 
   console.log(`${x} ${y}`);
 }
+function birthdayCakeCandles(candles) {
+  let sorted = candles.sort((a, b) => a - b);
+  const largestCandle = sorted.slice(-1);
+  return sorted.filter((n) => n == Number(largestCandle)).length;
+}
+function timeConversion(s) {
+  let [hr, min, sec] = s.split(":");
+  sec = String(parseInt(sec));
+  let result = "";
+  if (s.includes("PM")) {
+    result = `${+hr === 12 ? hr : +hr + 12}:${min}:${
+      sec.length == 1 ? "0" + sec : sec
+    }`;
+    return result;
+  } else {
+    result = `${+hr == 12 ? "00" : hr}:${min}:${
+      sec.length == 1 ? "0" + sec : sec
+    }`;
+    return result;
+  }
+}
+function gradingStudents(grades) {
+  let finalGrades = [];
+  grades.forEach((grade) => {
+    let multiple = Math.ceil(grade / 5) * 5;
+    if (multiple - grade < 3 && grade > 37) {
+      finalGrades.push(multiple);
+    } else {
+      finalGrades.push(grade);
+    }
+  });
+  return finalGrades;
+}
