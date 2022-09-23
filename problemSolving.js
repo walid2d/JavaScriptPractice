@@ -1229,3 +1229,41 @@ function kangaroo(x1, v1, x2, v2) {
     return "NO";
   }
 }
+function breakingRecords(scores) {
+  let minimum = scores[0];
+  let maximum = scores[0];
+  let minCount = 0;
+  let maxCount = 0;
+  scores.forEach((score) => {
+    if (score > maximum) {
+      maximum = score;
+      maxCount++;
+    }
+    if (score < minimum) {
+      minimum = score;
+      minCount++;
+    }
+  });
+  return [maxCount, minCount];
+}
+function birthday(s, d, m) {
+  let count = 0;
+
+  for (let i = 0; i < s.length; i++) {
+    let arr = s.slice(i, i + m).reduce((prev, curr) => prev + curr);
+    if (arr === d) count++;
+  }
+
+  return count;
+}
+function divisibleSumPairs(n, k, ar) {
+  let pairs = 0;
+  ar.forEach((num, i) => {
+    for (let j = i + 1; j < ar.length; j++) {
+      if ((num + ar[j]) % k === 0) {
+        pairs++;
+      }
+    }
+  });
+  return pairs;
+}
