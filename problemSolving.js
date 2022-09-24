@@ -1267,3 +1267,36 @@ function divisibleSumPairs(n, k, ar) {
   });
   return pairs;
 }
+function migratoryBirds(arr) {
+  let occ = [0, 0, 0, 0, 0];
+  arr.forEach((num) => {
+    if (num === 1) occ[0]++;
+    if (num === 2) occ[1]++;
+    if (num === 3) occ[2]++;
+    if (num === 4) occ[3]++;
+    if (num === 5) occ[4]++;
+  });
+
+  let highestN = Math.max(...occ);
+  let type = [];
+  occ.forEach((n, i) => {
+    if (n === highestN) type.push(i + 1);
+  });
+  return Math.min(...type);
+}
+function getTotalX(a, b) {
+  let minN = Math.max(...a);
+  let maxN = Math.min(...b);
+  let arr = [];
+  let result = [];
+
+  for (let i = minN; i <= maxN; i++) {
+    let num = b.every((v) => v % i === 0);
+    if (num) arr.push(i);
+  }
+  for (let i = 0; i < arr.length; i++) {
+    let num = a.every((v) => arr[i] % v === 0);
+    if (num) result.push(arr[i]);
+  }
+  return result.length;
+}
