@@ -1313,3 +1313,18 @@ function dayOfProgrammer(year) {
     }
   }
 }
+function bonAppetit(bill, k, b) {
+  let total = (bill.reduce((prev, curr) => prev + curr, 0) - bill[k]) / 2;
+  if (total === b) console.log(`Bon Appetit`);
+  else console.log(bill[k] / 2);
+}
+function sockMerchant(n, ar) {
+  let uniqueVal = [...new Set(ar)];
+  let num = 0;
+  for (let i = 0; i < uniqueVal.length; i++) {
+    let socks = ar.filter((v) => v === uniqueVal[i]).length;
+    let result = Math.floor(socks / 2);
+    num += result;
+  }
+  return num;
+}
