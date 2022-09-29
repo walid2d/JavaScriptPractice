@@ -1349,3 +1349,7 @@ class Matrix {
     return rowSerial.split(" ").map(Number);
   }
 }
+const isLastCharQuestionMark = (string) => {
+  const lastChar = string.slice(-1);
+  return lastChar == "?";
+};
