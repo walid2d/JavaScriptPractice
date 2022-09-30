@@ -1353,3 +1353,17 @@ const isLastCharQuestionMark = (string) => {
   const lastChar = string.slice(-1);
   return lastChar == "?";
 };
+
+let arr = [1, 3, 5, 9, 8];
+arr.reduce(
+  (accumulator, currentValue) => {
+    if (currentValue % 2 === 0) {
+      accumulator.even.push(currentValue);
+    } else {
+      accumulator.odd.push(currentValue);
+    }
+
+    return accumulator;
+  },
+  { even: [], odd: [] }
+);
