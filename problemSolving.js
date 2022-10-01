@@ -1367,3 +1367,17 @@ arr.reduce(
   },
   { even: [], odd: [] }
 );
+export class List {
+  constructor(values = []) {
+    this.values = values;
+  }
+  toString() {
+    return this.values.join(",");
+  }
+  compare(listB) {
+    if (this.toString() === listB.toString()) return "EQUAL";
+    if (this.toString().indexOf(listB.toString()) !== -1) return "SUPERLIST";
+    if (listB.toString().indexOf(this.toString()) !== -1) return "SUBLIST";
+    return "UNEQUAL";
+  }
+}
