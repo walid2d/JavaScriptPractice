@@ -1422,3 +1422,61 @@ export function translate(RNA) {
   }
   return final;
 }
+var List = function (values) {
+  this.values = values || [];
+};
+List.prototype.compare = function (listTwo) {
+  if (this.isSublist(listTwo)) {
+    if (this.values.length == listTwo.values.length) {
+      return "EQUAL";
+    }
+    return "SUBLIST";
+  } else if (listTwo.isSublist(this)) {
+    return "SUPERLIST";
+  }
+  return "UNEQUAL";
+};
+List.prototype.isSublist = function (listTwo) {
+  let ours = this.values;
+  let theirs = listTwo.values;
+  let isSublist = false;
+  if (ours.length === 0) {
+    return true;
+  }
+  if (ours.length > theirs.length) {
+    return false;
+  }
+  /* Slide until a a match is found.
+        ours    [3, 4, 5]
+        theirs  [0, 1, 2, 3, 4, 5]
+ 
+                   [3, 4, 5]
+                [0, 1, 2, 3, 4, 5]
+ 
+                      [3, 4, 5]
+                [0, 1, 2, 3, 4, 5]
+ 
+                         [3, 4, 5]    --> match!
+                [0, 1, 2, 3, 4, 5]
+    */
+  let limit = theirs.length - ours.length;
+  let i, j;
+  // slide
+  for (i = 0; i <= limit; i++) {
+    // first value matches
+    if (ours[0] === theirs[i]) {
+      // compare other values
+      for (j = 1; j < ours.length; j++) {
+        if (ours[j] != theirs[i + j]) {
+          break;
+        }
+      }
+      // all values match
+      if (j == ours.length) {
+        return true;
+      }
+    }
+  }
+  return false;
+};
+module.exports = List;
