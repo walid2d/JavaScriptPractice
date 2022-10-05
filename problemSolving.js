@@ -1446,3 +1446,34 @@ function pageCount(n, p) {
 
   return Math.floor(result);
 }
+function countingValleys(steps, path) {
+  let valleys = 0;
+  let alt = 0;
+  for (let step of path) {
+    if (step == "U") {
+      alt++;
+      if (alt === 0) valleys++;
+    } else {
+      alt--;
+    }
+  }
+  return valleys;
+}
+function getMoneySpent(keyboards, drives, b) {
+  let combo = [];
+  for (let i = 0; i < keyboards.length; i++) {
+    for (let j = 0; j < drives.length; j++) {
+      if (keyboards[i] + drives[j] <= b) {
+        combo.push(keyboards[i] + drives[j]);
+      }
+    }
+  }
+  if (combo.length === 0) return -1;
+  return Math.max(...combo);
+}
+function catAndMouse(x, y, z) {
+  let distanceFromX = Math.abs(z - x);
+  let distanceFromY = Math.abs(z - y);
+  if (distanceFromX == distanceFromY) return "Mouse C";
+  return distanceFromX > distanceFromY ? "Cat B" : "Cat A";
+}
