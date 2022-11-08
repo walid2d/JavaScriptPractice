@@ -1474,10 +1474,8 @@ function hurdleRace(k, height) {
   for (let i of height) {
     if (i > maxHeight) {
       maxHeight = i;
-      console.log(i);
     }
   }
-  console.log(maxHeight);
 
   if (k === maxHeight || maxHeight < k) return 0;
   if (maxHeight > k) return maxHeight - k;
