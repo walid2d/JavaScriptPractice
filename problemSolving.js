@@ -838,18 +838,7 @@ export const twoFer = (name = "you") => {
   return `One for ${name}, one for me.`;
 };
 //Resistor Color
-export const COLORS = [
-  "black",
-  "brown",
-  "red",
-  "orange",
-  "yellow",
-  "green",
-  "blue",
-  "violet",
-  "grey",
-  "white",
-];
+
 export const colorCode = (color) => {
   return COLORS.indexOf(color);
 };
@@ -1133,16 +1122,7 @@ export class Squares {
     this.difference = this.squareOfSum - this.sumOfSquares;
   }
 }
-export const parse = (str) => {
-  let string = str
-    .match(/['a-z]+/gi)
-    .join(" ")
-    .split(" ")
-    .map((w) => w[0])
-    .join("")
-    .toUpperCase();
-  return string;
-};
+
 export const parse = (string) => {
   return string
     .toUpperCase()
@@ -1477,19 +1457,13 @@ function catAndMouse(x, y, z) {
   if (distanceFromX == distanceFromY) return "Mouse C";
   return distanceFromX > distanceFromY ? "Cat B" : "Cat A";
 }
-let num = a[0]; 
-let maxOcurN = a.filter(n=> a[0] == n).length; 
-for(let i = 0; i < a.length; i++){
-    //if current num has more ocurrence than it will be the new maximum ocurring num 
-    let numLength = a.filter(n => a[i] === n).length
-    if(numLength > maxOcurN){
-        maxOcurN = numLength
-        num = a[i]
-    }
-}
-let differenceOne = a.filter(n => num - n == 1).length
-let differenceTwo = a.filter(n => n - num == 1).length
-let result = maxOcurN + Math.max(differenceOne,differenceTwo)
-console.log('num:',num,'maxOcurN:',maxOcurN,'differenceOne:',differenceOne,'differenceTwo:',differenceTwo);
-return result 
+let num = a[0];
+let maxOcurN = a.filter((n) => a[0] == n).length;
+for (let i = 0; i < a.length; i++) {
+  //if current num has more ocurrence than it will be the new maximum ocurring num
+  let numLength = a.filter((n) => a[i] === n).length;
+  if (numLength > maxOcurN) {
+    maxOcurN = numLength;
+    num = a[i];
+  }
 }
