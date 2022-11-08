@@ -1480,3 +1480,46 @@ function hurdleRace(k, height) {
   if (k === maxHeight || maxHeight < k) return 0;
   if (maxHeight > k) return maxHeight - k;
 }
+
+// Designer PDF Viewer
+function designerPdfViewer(h, word) {
+  let alphabets = [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+    "i",
+    "j",
+    "k",
+    "l",
+    "m",
+    "n",
+    "o",
+    "p",
+    "q",
+    "r",
+    "s",
+    "t",
+    "u",
+    "v",
+    "w",
+    "x",
+    "y",
+    "z",
+  ];
+  let obj = {};
+  let highest = 0;
+
+  for (let i = 0; i < h.length; i++) {
+    obj[alphabets[i]] = h[i];
+  }
+
+  for (let i = 0; i < word.length; i++) {
+    highest = Math.max(highest, obj[word[i]]);
+  }
+  return highest * word.length;
+}
